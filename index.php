@@ -6,7 +6,7 @@
     <h2>ALL STUDENTS</h2>
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">ADD STUDENTS</button>
     <!-- <button class="btn btn-info" onclick="window.location.href='export_excel.php'">Download as Excel</button> -->
-    <button class="btn btn-info" id="downloadExcel">Download as Excel</button>
+    <!-- <button class="btn btn-info" id="downloadExcel">Download as Excel</button> -->
 
 </div>  
 

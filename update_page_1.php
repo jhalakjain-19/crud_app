@@ -15,9 +15,7 @@ if(!$result){
  
 }
 }
-
 ?>
-
 
 <?php
   if (isset($_POST['update_students'])) {
