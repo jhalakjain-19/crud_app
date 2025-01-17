@@ -1,30 +1,9 @@
 </div>
-<script>
-document.getElementById('downloadExcel').addEventListener('click', function () {
-    fetch('export_excel.php', {
-        method: 'GET',
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.blob();
-        }
-        throw new Error('Failed to export data');
-    })
-    .then(blob => {
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = 'students_data.xls';
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
-    })
-    .catch(error => {
-        console.error('Error exporting data:', error);
-    });
-});
-</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+
 
 
 </body>
