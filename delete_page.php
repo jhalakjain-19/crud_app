@@ -1,7 +1,6 @@
 <?php
 include "dbcon.php";
 
-
 if(isset($_GET['id'])){
   $id=$_GET['id'];
   $query="delete from `students`where `id`='$id'";

@@ -1,9 +1,15 @@
 <?php include('header.php'); ?>
-<?php include('dbcon.php'); ?>
+<?php include('dbcon.php'); 
+
+?>
 <div class="box1">
     <h2>ALL STUDENTS</h2>
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">ADD STUDENTS</button>
-</div>    
+    <!-- <button class="btn btn-info" onclick="window.location.href='export_excel.php'">Download as Excel</button> -->
+    <button class="btn btn-info" id="downloadExcel">Download as Excel</button>
+
+</div>  
+
   <table class="table table-hover table-bordered table-striped">
     <thead>
        <tr>
@@ -44,6 +50,7 @@ if(!$result){
      
     </tbody>  
   </table>
+  
   <?php
      if(isset($_GET['message'])){
       echo "<h6 style='text-align: center; color: red;'>".$_GET['message']."</h6>";
@@ -64,6 +71,7 @@ if(!$result){
       echo "<h6 style='text-align: center; color: green;'>".$_GET['update_msg']."</h6>";
      }
   ?>
+  
   <form action="insert_data.php" method="post">
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

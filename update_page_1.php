@@ -20,23 +20,30 @@ if(!$result){
 
 
 <?php
-  if(isset($_POST['update_students'])){
-    //if update button is pressed
-    $f_name=$_POST['fname'];
-    $l_name=$_POST['lname'];
-    $age=$_POST['age'];
+  if (isset($_POST['update_students'])) {
+    // Retrieve the ID from the URL
+    $id = $_GET['id'];
 
-    $query="UPDATE `students` SET `first_name`='$f_name',`last_name`='$l_name',`age`='$age' WHERE `id`='$id'";
-    $result=mysqli_query($connection,$query);
-    if(!$result){
-  die("query failed".mysqli_connect_error());
-  }
-  else{
-    header("location:index.php?update_msg=Data updated successfully");
-  }
+    // Get the updated values from the form
+    $f_name = $_POST['fname'];
+    $l_name = $_POST['lname'];
+    $age = $_POST['age'];
+
+    // Perform the update query
+    $query = "UPDATE `students` SET `first_name`='$f_name', `last_name`='$l_name', `age`='$age' WHERE `id`='$id'";
+    echo $query;
+   $result = mysqli_query($connection, $query);
+
+    if (!$result) {
+        die("Query failed: " . mysqli_error($connection));
+    } else {
+        header("Location: index.php?update_msg=Data updated successfully");
+        exit(); // Always exit after header redirection
+    }
 }
+
 ?>
-<form action="update_page_1.php?<?php echo $id;?>" method="POST">
+<form action="update_page_1.php?id=<?php echo $id; ?>" method="POST">
 <div class="form-group">
             <label for="fname">First Name</label>
             <input type="text" name="fname" class="form-control" value="<?php echo $row['first_name']?>">
